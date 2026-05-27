@@ -23,6 +23,7 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     linear-gradient(90deg, rgba(39, 49, 76, 0.055) 1px, transparent 1px),
     linear-gradient(rgba(39, 49, 76, 0.055) 1px, transparent 1px), var(--paper);
@@ -725,35 +726,50 @@ h1 {
 
   .hero {
     min-height: auto;
+    padding-top: 40px;
+  }
+
+  .hero-copy,
+  .overview,
+  .project-copy,
+  .profile-panel {
+    min-width: 0;
   }
 
   .profile-panel {
-    max-width: 520px;
+    max-width: 100%;
   }
 
   .skills {
     grid-template-columns: 1fr;
   }
 
-  .certificate-grid,
-  .photo-grid {
-    grid-template-columns: 1fr 1fr;
+  .skills div {
+    min-height: auto;
   }
 
+  .certificate-grid,
+  .photo-grid,
   .app-showcase,
-  .learnbright-showcase {
+  .learnbright-showcase,
+  .project-gallery {
     grid-template-columns: 1fr;
   }
 
   .app-poster,
   .app-phone {
-    width: min(360px, 100%);
+    width: min(420px, 100%);
     height: auto;
     justify-self: center;
   }
 
-  .photo-grid img {
-    height: 520px;
+  .photo-grid img,
+  .project-gallery img,
+  .app-screens img,
+  .three-up img:first-child {
+    height: auto;
+    min-height: auto;
+    max-height: none;
   }
 
   .project.reverse .project-copy {
@@ -795,7 +811,11 @@ h1 {
     font-size: clamp(3.2rem, 17vw, 5.5rem);
   }
 
-  .hero-actions,
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .button,
   .contact-link {
     width: 100%;
@@ -809,24 +829,52 @@ h1 {
     padding: 16px;
   }
 
+  .about-copy {
+    gap: 16px;
+  }
+
+  .contact {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .contact h2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-links {
+    justify-content: center;
+    max-width: 620px;
+    width: 100%;
+  }
+
+  .contact-link span {
+    display: inline-block;
+    max-width: calc(100% - 42px);
+    word-break: break-word;
+    white-space: normal;
+  }
+
   .three-up,
   .two-up,
   .web-grid,
   .film-grid,
   .brochure-grid,
   .certificate-grid,
-  .photo-grid {
+  .photo-grid,
+  .app-showcase,
+  .learnbright-showcase {
     grid-template-columns: 1fr;
   }
 
   .project-gallery img,
-  .three-up img:first-child {
+  .three-up img:first-child,
+  .app-screens img,
+  .photo-grid img {
     min-height: 220px;
     max-height: none;
-  }
-
-  .photo-grid img {
     height: auto;
-    max-height: none;
   }
 }
