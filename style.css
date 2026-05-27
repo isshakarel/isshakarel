@@ -764,9 +764,10 @@ h1 {
 @media (max-width: 640px) {
   .site-header {
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     min-height: auto;
     padding: 14px 20px;
+    gap: 14px;
   }
 
   .brand {
