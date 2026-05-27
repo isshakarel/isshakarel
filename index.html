@@ -23,7 +23,21 @@
       <a class="brand" href="#home" aria-label="Issha Karel Baltazar home">
         <img src="images/logo.png" alt="Issha Karel Baltazar logo" />
       </a>
-      <nav aria-label="Primary navigation">
+
+      <button
+        class="hamburger"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span class="bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav aria-label="Primary navigation" id="mobile-nav">
         <a href="#about">About</a>
         <a href="#work">Work</a>
         <a href="#certificates">Certificates</a>
@@ -460,6 +474,41 @@
       window.addEventListener("load", () => {
         AOS.refreshHard();
       });
+
+      // Mobile menu (hamburger)
+      const mobileNav = document.getElementById("mobile-nav");
+      const hamburgerButton = document.querySelector(".hamburger");
+
+      const setMenuOpen = (isOpen) => {
+        document.body.classList.toggle("menu-open", isOpen);
+        hamburgerButton?.setAttribute(
+          "aria-expanded",
+          isOpen ? "true" : "false",
+        );
+      };
+
+      if (hamburgerButton && mobileNav) {
+        hamburgerButton.addEventListener("click", () => {
+          const isOpen = document.body.classList.contains("menu-open");
+          setMenuOpen(!isOpen);
+
+          if (!isOpen) {
+            // Focus first link for accessibility
+            const firstLink = mobileNav.querySelector("a");
+            firstLink?.focus();
+          }
+        });
+
+        mobileNav.addEventListener("click", (e) => {
+          if (e.target && e.target.tagName === "A") {
+            setMenuOpen(false);
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") setMenuOpen(false);
+        });
+      }
 
       const lightbox = document.querySelector(".image-lightbox");
       const lightboxImage = lightbox.querySelector("img");

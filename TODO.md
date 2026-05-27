@@ -1,0 +1,7 @@
+- [ ] Read current mobile header/nav implementation
+- [ ] Add hamburger button + mobile drawer markup to index.html
+- [ ] Add responsive CSS/JS to toggle menu on phone view
+- [ ] Ensure accessibility (aria-expanded/controls, focus handling)
+- [ ] Test in browser for mobile layout
+- [ ] Commit changes
+- [ ] Push changes to GitHub
